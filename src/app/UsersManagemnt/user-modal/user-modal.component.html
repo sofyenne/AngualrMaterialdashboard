@@ -1,0 +1,69 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>cin</mat-label>
+    <input type="number" matInput [(ngModel)]="data.user.cin">
+  </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>email</mat-label>
+        <input matInput [(ngModel)]="data.user.email">
+      </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>nom</mat-label>
+    <input matInput [(ngModel)]="data.user.firstname">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>prenom</mat-label>
+    <input matInput [(ngModel)]="data.user.lastname">
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngIf="data.title ==='create user'">
+    <mat-label>password</mat-label>
+    <input matInput [(ngModel)]="data.user.password">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>matrecule</mat-label>
+    <input matInput [(ngModel)]="data.user.matricule">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>telephone</mat-label>
+    <input matInput [(ngModel)]="data.user.phone">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Role</mat-label>
+    <mat-select [(ngModel)]="data.user.role" >
+      <mat-option *ngIf="data.title ==='edit user'" [value]="data.user.role">{{data.user.role.role}}</mat-option>
+     <ng-container >
+      <mat-option  *ngFor="let d of data.role" [value]="d">
+        {{d.role}}
+      </mat-option>
+    </ng-container>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Direction</mat-label>
+    <mat-select [(ngModel)]="data.user.direction" >
+     <mat-option *ngIf="data.title==='edit user'" [value]="data.user.direction">{{data.user.direction.name}}</mat-option>
+     <ng-container>
+      <mat-option  *ngFor="let d of data.direction" [value]="d">
+        {{d.name}}
+      </mat-option>
+    </ng-container>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>service</mat-label>
+    <mat-select [(ngModel)]="data.user.service" >
+     <mat-option *ngIf="data.title ==='edit user'" [value]="data.user.service">{{data.user.service.name}}</mat-option>
+     <ng-container *ngIf="data.title !=='edit user'">
+      <mat-option  *ngFor="let d of data.service" [value]="d">
+        {{d.name}}
+      </mat-option>
+    </ng-container>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data.user" cdkFocusInitial>Ok</button>
+</div>
+

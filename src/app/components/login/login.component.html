@@ -1,0 +1,47 @@
+
+  <div class="container" >
+          <div class="container" >
+            <div class="row">
+              <div class="col-md-8 mx-auto">
+                <div class="card-group">
+                  <div class="card p-4">
+                    <div class="card-body">
+                      <form [formGroup]="loginform">
+                        <h1>Login</h1>
+                        <p class="text-muted">Sign In to your account</p>
+  
+                          <mat-form-field appearance="fill">
+                          <input type="email" id="email" matInput placeholder="email" name="email" required formControlName="email" >
+                          </mat-form-field>
+                 
+                          <mat-form-field appearance="fill">
+                            <input type="password"matInput  placeholder="Password" autocomplete="current-password" required name="password" required formControlName="password" >
+                          </mat-form-field>
+                          
+                        <div class="row">
+                          <div class="col-6">
+                            <button type="submit" class="btn btn-primary px-4"(click)="login()" [disabled]="!loginform.valid">login</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="card text-white py-5 d-md-down-none" style="background-image: url('../../../assets/img/DSE\ OACA.png');background-repeat: no-repeat;background-position: center;background-size: contain;">
+                    <div class="card-body text-center">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+
+
+    <style>
+      .container {
+        width: 100;
+        padding-top: 110px;
+      }
+    </style>

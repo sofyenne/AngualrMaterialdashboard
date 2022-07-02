@@ -1,0 +1,52 @@
+<div class="text-right"><button mat-raised-button color="primary" (click)="openModal()">add new</button></div>
+<div class="table-responsive">
+    <table class="table">
+        <thead class=" text-primary">
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Direction
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of serviceList">
+                <td>
+                    {{item.serviceId}}
+                </td>
+                <td>
+                    {{item.name}}
+                </td>
+                <td>
+                    {{item.direction.name}}
+                </td>
+                <td>
+                    
+                        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="removeservice(item.serviceId)">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+                        
+                   
+                  
+                </td>
+                <td>
+                    <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"(click)="openModalEdit(item)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                </td>
+               
+            </tr>
+            
+        </tbody>
+    </table>
+</div>

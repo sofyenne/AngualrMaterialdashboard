@@ -1,0 +1,85 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Gestion des Utilisateurs</h4>
+                      <p class="card-category"> List des utilistaeurs</p>
+                  </div>
+                  <div class="card-body">
+                    <div class="text-right"><button mat-raised-button color="primary" (click)="openModal()">add new</button></div>
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      Cin
+                                  </th>
+                                 
+                                  <th>
+                                      email
+                                  </th>
+                                  <th>
+                                      firstname
+                                  </th>
+                                  <th>
+                                      lastname
+                                  </th>
+                                  <th>
+                                    service
+                                </th>
+                                <th>
+                                    direction
+                                </th>
+                                <th>edit</th>
+                                <th>delete</th>
+                                <th>
+                                  IsActive
+                              </th>
+                              </thead>
+                              <tbody>
+                                <ng-container *ngFor ="let user of userList" >
+                                  <tr >
+                                      <td>
+                                          {{user.cin}}
+                                      </td>
+                                      
+                                      <td>
+                                        {{user.email}}
+                                      </td>
+                                      <td>
+                                        {{user.firstname}}
+                                      </td>
+                                      <td>
+                                        {{user.lastname}}
+                                      </td>
+                                      <td>
+                                        {{user.service.name}}
+                                      </td>
+                                      <td>
+                                        {{user.direction.name}}
+                                      </td>
+                                      <td>
+                                        
+                                                <button mat-fab color="green" aria-label="Example icon button with a bookmark icon" (click)="openModalEdit(user)">
+                                                  <mat-icon>edit</mat-icon>
+                                                </button>
+                                      </td>
+                                      <td><button mat-fab color="accent" aria-label="Example icon button with a delete icon" (click)="removeuser(user.cin)">
+                                                <mat-icon>delete</mat-icon>
+                                              </button></td>
+                                              <td>
+                                               <button [class]="btnclass(user.active)" (click)="activeUser(user.cin)">{{btnlabel(user.active)}}</button>
+                                              </td>
+                                  </tr>
+                                </ng-container>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
